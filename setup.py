@@ -10,7 +10,7 @@ setup(
     packages=find_packages(),
     packages_dir = {'' : 'scriptsplash'},
     author='aureliencarle',
-    description='Python Labomedia Utilities',
+    description='Python Splash for Scripts',
     url='',
     download_url='https://github.com/aureliencarle/scriptsplash.git',
     license='GPL Version 3',

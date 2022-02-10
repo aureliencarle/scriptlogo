@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from scriptsplash.splash import Splash
-from scriptsplash.log    import Color, Log
+from scriptsplash import Splash
+from scriptsplash import Color, Log
 #from scriptsplash.utils  import GlobalVariable
 
 if __name__ == '__main__':
@@ -14,7 +14,7 @@ if __name__ == '__main__':
 
     script_splash.add_empty_line()
     script_splash.add_ansi_logo(
-        'The Logo', 
+        'Splash', 
         align = 'center',
         color = Color.GREEN
     )
@@ -27,13 +27,13 @@ if __name__ == '__main__':
     script_splash.add_separator()
 
     script_splash.add_two_content_line(
-        'Welcome to THE PROGRAM', 'http://gitlab.com', 
+        'Welcome to THE ScriptSplash program', 'http://github.com', 
         align  = 'middle',
         color1 = None,
         color2 = Color.CYAN
     )
     script_splash.add_one_content_line(
-        '(c) 1992-2022, The Prog Team',  
+        'Aurélien Carle',  
         align  = 'right'
     )
     script_splash.add_one_content_line(
@@ -42,11 +42,7 @@ if __name__ == '__main__':
         color  = Color.RED
     )
     script_splash.add_one_content_line(
-        'From tags/some_branch@v1.0', 
-        align  = 'left'
-    )
-    script_splash.add_one_content_line(
-        'Try \'.help\', \'.demo\', \'.license\', \'.credits\', \'.quit\'/\'.q\'',  
+        'From the only existing branch ... v1.0', 
         align  = 'left'
     )
 

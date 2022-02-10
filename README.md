@@ -12,6 +12,7 @@ Update:
 pip3 install --upgrade git+https://github.com/aureliencarle/scriptsplash.git#egg=scriptsplash
 ~~~
 
+with this installation methode a src directory will be created in your project directory with all the good ready-to-use settings
 
 ### How to use scriptsplash
 
@@ -21,7 +22,7 @@ Example of script :
 # Imports en python3
 from scriptsplash import Logo
 from scriptsplash import Color, Log
-#from scriptsplash.utils  import GlobalVariable
+#from scriptsplash  import GlobalVariable
 
 if __name__ == '__main__':
 
@@ -58,13 +59,13 @@ if __name__ == '__main__':
 
         # If you want two informations on same line, each one have their own color variable.
         script_splash.add_two_content_line(
-            'Welcome to THE PROGRAM', 'http://gitlab.com', 
+            'Welcome to THE ScriptSplash program', 'http://github.com', 
             align  = 'middle',
             color1 = None,
             color2 = Color.CYAN
         )
         script_splash.add_one_content_line(
-            '(c) 1992-2022, The Prog Team',  
+            'Aurélien Carle',  
             align  = 'right'
         )
         script_splash.add_one_content_line(
@@ -73,11 +74,7 @@ if __name__ == '__main__':
             color  = Color.RED
         )
         script_splash.add_one_content_line(
-            'From tags/some_branch@v1.0', 
-            align  = 'left'
-        )
-        script_splash.add_one_content_line(
-            'Try \'.help\', \'.demo\', \'.license\', \'.credits\', \'.quit\'/\'.q\'',  
+            'From the only existing branch ... v1.0', 
             align  = 'left'
         )
 
