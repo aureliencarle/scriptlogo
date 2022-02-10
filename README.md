@@ -1,6 +1,6 @@
-#### Installation de scriptsplash
+#### Installation
 
-* Inspired by [Créer son propre package python](https://ressources.labomedia.org/creer_son_propre_package_python)
+* (Hugely) Inspired by [Créer son propre package python](https://ressources.labomedia.org/creer_son_propre_package_python)
 
 ~~~text
 pip3 install -e git+https://github.com/aureliencarle/scriptsplash.git#egg=scriptsplash
@@ -12,7 +12,7 @@ Update:
 pip3 install --upgrade git+https://github.com/aureliencarle/scriptsplash.git#egg=scriptsplash
 ~~~
 
-with this installation methode a src directory will be created in your project directory with all the good ready-to-use settings
+with this installation method a src directory will be created in your project directory with all the good ready-to-use settings and path
 
 ### How to use scriptsplash
 
@@ -96,8 +96,4 @@ if __name__ == '__main__':
 
 ### Licence
 
-Tous les scripts sont sous
-
-GNU GENERAL PUBLIC LICENSE Version 3
-
-voir le fichier LICENSE
+All scripts are under license : GNU GENERAL PUBLIC LICENSE Version 3
