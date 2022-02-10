@@ -3,13 +3,13 @@
 * [Créer son propre package python](https://ressources.labomedia.org/creer_son_propre_package_python)
 
 ~~~text
-pip install -e git+https://github.com/aureliencarle/scriptlogo.git#egg=scriptlogo
+pip install -e git+https://github.com/aureliencarle/scriptlogo.git#egg=scriptsplash
 ~~~
 
 Mise à jour:
 
 ~~~text
-pip install --upgrade git+https://github.com/aureliencarle/scriptlogo.git#egg=scriptlogo
+pip install --upgrade git+https://github.com/aureliencarle/scriptsplash.git#egg=scriptlogo
 ~~~
 
 
