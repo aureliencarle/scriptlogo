@@ -16,7 +16,7 @@ class GlobalVariable:
     WIDTH = 80
 
     @staticmethod
-    def set(width = 80, log_symbol = '\u00bb'):
+    def set(width=80, log_symbol='\u00bb'):
         GlobalVariable.LOG_SYMBOL = log_symbol
         GlobalVariable.WIDTH      = width
 

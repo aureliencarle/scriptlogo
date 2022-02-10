@@ -29,10 +29,9 @@ from scriptsplash import Color, Log
 
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('-a', action = 'store_true', help='any argument')
-parser.add_argument('-b', action = 'store', help='another argument')
-args = parser.parse_args()
-parser.add_argument('-c', action = 'store', nargs="?", help='another argument again')
+parser.add_argument('-a', action='store_true', help='any argument')
+parser.add_argument('-b', action='store', help='another argument')
+parser.add_argument('-c', action='store', nargs="?", help='another argument again')
 args = parser.parse_args()
 
 
@@ -41,7 +40,7 @@ if __name__ == '__main__':
     try :
         # If needed change global variable first to store width of canvas and symbols for log print.
         # If not call GlobalVariable is declared with default value width=80 (unix convention).
-        #GlobalVariable.set(width = 100, log_symbol = '\u00bb').
+        #GlobalVariable.set(width=100, log_symbol='\u00bb').
 
         # Create a splash context. A color can be given as argument for constructeur.
         # This parameter is global color that will override every other color.  
@@ -49,7 +48,7 @@ if __name__ == '__main__':
         #script_splash = Splash(global_color = Color.Yellow)
 
         # Change font and color of the binding ('ANSI Shadow', 'Sharp'(#), 'Minimal'(- and |) ).
-        script_splash.borders(color = Color.BLUE, font='ANSI Shadow')
+        script_splash.borders(color=Color.BLUE, font='ANSI Shadow')
 
         # explicit name ;)
         script_splash.add_empty_line()
@@ -59,14 +58,14 @@ if __name__ == '__main__':
         # Their is a 'middle' alignement for line with two infos (see below).
         script_splash.add_ansi_logo(
             'The Logo', 
-            align = 'center',
-            color = Color.GREEN
+            align='center',
+            color=Color.GREEN
         )
 
         # explicit name ;)
         script_splash.add_one_content_line(
             'by Arc-Pintade',  
-            align  = 'right'
+            align='right'
         )
 
         #
@@ -78,38 +77,38 @@ if __name__ == '__main__':
         # If you want two informations on same line, each one have their own color variable.
         script_splash.add_two_content_line(
             'Welcome to THE ScriptSplash program', 'http://github.com', 
-            align  = 'middle',
-            color1 = None,
-            color2 = Color.CYAN
+            align='middle',
+            color1=None,
+            color2=Color.CYAN
         )
 
         #
         script_splash.add_one_content_line(
             'Aurélien Carle',  
-            align  = 'right'
+            align='right'
         )
         #
         script_splash.add_one_content_line(
             'Built for linuxx8664gcc',   
-            align  = 'left',
-            color  = Color.RED
+            align='left',
+            color=Color.RED
         )
         #
         script_splash.add_one_content_line(
             'From the only existing branch ... v1.0', 
-            align  = 'left'
+            align='left'
         )
         #
         script_splash.add_separator(
             '-', 
-            color = Color.YELLOW
+            color=Color.YELLOW
         )
         
         # If your code use argparse, you can print the help content in the splash
         script_splash.add_argparse_help(
             parser,
-            align = "left",
-            color = Color.YELLOW
+            align="left",
+            color=Color.YELLOW
         )
 
         # Finaly print the splash.

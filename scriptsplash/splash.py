@@ -25,7 +25,7 @@ class Canvas:
             if not a.startswith('__'):
                 setattr(Canvas, a, String(''))
 
-    def borders(self, color = None, font = 'ANSI Shadow'):
+    def borders(self, color=None, font='ANSI Shadow'):
         if self.global_color is not None : color = self.global_color
         for a in ASCII.Frame.keys():
             if not a.startswith('__'):
@@ -34,20 +34,20 @@ class Canvas:
     def empty_line(self):
         return ' '*self.width
 
-    def horizontal_line(self, is_filled = True):
+    def horizontal_line(self, is_filled=True):
         if is_filled:
             return self.horizontal.text*self.width
         else:
             return self.horizontal.text + ' '*(self.width - 2) + self.horizontalh.text
 
-    def separator(self, symbol = None, color = None):
+    def separator(self, symbol=None, color=None):
         symbol_string = String(symbol, color)
         if symbol is not None:
             return self.vertical.text + symbol_string.text*(self.width - 2) + self.vertical.text
         else:
             return self.center_left.text + self.horizontal.text*(self.width - 2) + self.center_right.text
 
-    def vertical_line(self, line1 = None, line2 = None, align = 'left') -> str:
+    def vertical_line(self, line1=None, line2=None, align='left') -> str:
         result = self.vertical.text
         offset = 1 
         if line1 is None and line2 is None:
@@ -55,17 +55,17 @@ class Canvas:
         else:
             if line2 is None:
                 line2 = String('')
-            filled_space = self.width - line1.size - line2.size - 2 
+            filled_space   = self.width - line1.size - line2.size - 2 
             n_space_right  = filled_space - offset    # cosmetic shift -offset
             n_space_left   = offset                   # cosmetic shift +offset
             n_space_middle = 0
-            if align is 'center' :
+            if align == 'center' :
                 n_space_left  = int(filled_space / 2)
                 n_space_right = filled_space - n_space_left
-            elif align is 'right':
+            elif align == 'right':
                 n_space_left = filled_space - offset
                 n_space_right = offset
-            elif align is 'middle':
+            elif align == 'middle':
                 n_space_right  = offset 
                 n_space_left   = offset
                 n_space_middle = filled_space - 2*offset 
@@ -98,10 +98,10 @@ class Canvas:
 class Splash(Canvas):
     '''
     '''
-    def __init__(self, global_color = None):
+    def __init__(self, global_color=None):
         super().__init__(global_color)
 
-    def generate_ansi(self, text, font='ANSI Shadow', color = None):
+    def generate_ansi(self, text, font='ANSI Shadow', color=None):
         if self.global_color is not None : color = self.global_color
         result = []
         for char in text:
@@ -124,23 +124,22 @@ class Splash(Canvas):
         #    Log.info('change canvas width with 'GlobalVariable.set()'')
         return result
 
-    def add_multi_line(self, multiline, align = 'left'):
+    def add_multi_line(self, multiline, align='left'):
         for line in multiline:
             self.block.append(self.vertical_line(line, align=align)) 
 
-    def add_ansi_logo(self, logo, align = 'left', color = None):
-        self.add_multi_line(self.generate_ansi(logo, color = color), 
-                            align = align)
+    def add_ansi_logo(self, logo, align='left', color=None):
+        self.add_multi_line(self.generate_ansi(logo, color=color), align=align)
 
     def add_empty_line(self):
         self.block.append(self.vertical_line())
 
-    def add_separator(self, symbol = None, color = None):
+    def add_separator(self, symbol=None, color=None):
         if self.global_color is not None:
             color = self.global_color
         self.block.append(self.separator(symbol, color))
 
-    def add_one_content_line(self, line, align = 'left', color = None):
+    def add_one_content_line(self, line, align='left', color=None):
         if self.global_color is not None : color = self.global_color
         if align in align_options:
             string = String(line)
@@ -149,7 +148,7 @@ class Splash(Canvas):
         else:
             Log.error('bad align option')
 
-    def add_two_content_line(self, line1, line2, align = 'left', color1 = None, color2 = None):
+    def add_two_content_line(self, line1, line2, align='left', color1=None, color2=None):
         if self.global_color is not None:
             color1 = self.global_color
             color2 = self.global_color
@@ -159,11 +158,12 @@ class Splash(Canvas):
         string2.colored(color2)
         self.block.append(self.vertical_line(string1, string2, align=align))
 
-    def add_argparse_help(self, parser, align = "left", color = None):
-        if self.global_color is not None : color = self.global_color
+    def add_argparse_help(self, parser, align='left', color=None):
+        if self.global_color is not None: 
+            color=self.global_color
         help = []
         for line in parser.format_help().split('\n'):
-            if line is not '':
+            if line != '':
                 help.append(String(line, color))
         self.add_multi_line(help)    
 

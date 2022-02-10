@@ -19,7 +19,7 @@ class String:
     text  = ''
     size  = 0
 
-    def __init__(self, text, color = None):
+    def __init__(self, text, color=None):
         if text:
             self.text = text
             self.size = len(text)
