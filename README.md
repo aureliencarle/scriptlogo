@@ -3,13 +3,13 @@
 * [Créer son propre package python](https://ressources.labomedia.org/creer_son_propre_package_python)
 
 ~~~text
-sudo pip3 install -e git+https://github.com/sergeLabo/pymultilame.git#egg=pymultilame
+pip install -e git+https://github.com/aureliencarle/scriptlogo.git#egg=scriptlogo
 ~~~
 
 Mise à jour:
 
 ~~~text
-sudo pip3 install --upgrade git+https://github.com/sergeLabo/pymultilame.git#egg=pymultilame
+pip install --upgrade git+https://github.com/aureliencarle/scriptlogo.git#egg=scriptlogo
 ~~~
 
 
