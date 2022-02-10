@@ -7,12 +7,12 @@
     et qui nécessiteraient des recherches.
     Les imports réalisé ici facilite les imports dans les scripts:
     Au lieu de:
-        from scriptlogo.shell_logo import Logo
+        from scriptsplash.splash import Splash
     faire:
-        from scriptlogo import Logo
+        from scriptsplash import Splash
 """
 
-name = "scriptlogo"
+name = "scriptsplash"
 
 # Core of this module
 from scriptsplash.splash import Splash

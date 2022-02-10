@@ -3,13 +3,13 @@
 * Inspired by [Créer son propre package python](https://ressources.labomedia.org/creer_son_propre_package_python)
 
 ~~~text
-pip install -e git+https://github.com/aureliencarle/scriptsplash.git#egg=scriptsplash
+pip3 install -e git+https://github.com/aureliencarle/scriptsplash.git#egg=scriptsplash
 ~~~
 
 Update:
 
 ~~~text
-pip install --upgrade git+https://github.com/aureliencarle/scriptsplash.git#egg=scriptsplash
+pip3 install --upgrade git+https://github.com/aureliencarle/scriptsplash.git#egg=scriptsplash
 ~~~
 
 
@@ -19,8 +19,8 @@ Example of script :
 
 ~~~python
 # Imports en python3
-from scriptlogo import Logo
-from scriptlogo import Color, Log
+from scriptsplash import Logo
+from scriptsplash import Color, Log
 #from scriptsplash.utils  import GlobalVariable
 
 if __name__ == '__main__':
