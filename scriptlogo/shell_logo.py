@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from pyrfc3339 import generate
 from scriptlogo.fonts import ASCII
 
 SIZE = 80
@@ -49,7 +50,9 @@ class Canvas:
     block = []
 
     def __init__(self):    
-        pass
+        for a in ASCII.Frame.keys():
+            if not a.startswith("__"):
+                setattr(Canvas, a, String(""))
 
     def new_canvas(self, color = None, font = "ANSI Shadow"):
         for a in ASCII.Frame.keys():
