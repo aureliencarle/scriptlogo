@@ -3,7 +3,7 @@
 
 from scriptsplash.splash import Splash
 from scriptsplash.log    import Color, Log
-from scriptsplash.utils import GlobalVariable
+#from scriptsplash.utils  import GlobalVariable
 
 if __name__ == '__main__':
 

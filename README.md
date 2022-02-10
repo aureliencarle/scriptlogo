@@ -21,6 +21,7 @@ Example of script :
 # Imports en python3
 from scriptlogo import Logo
 from scriptlogo import Color, Log
+#from scriptsplash.utils  import GlobalVariable
 
 if __name__ == '__main__':
 
