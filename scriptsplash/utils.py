@@ -15,9 +15,10 @@ class GlobalVariable:
     LOG_SYMBOL = '\u00bb'
     WIDTH = 80
 
-    def change(self, width = 80, log_symbol = ' \u00bb '):
-        self.LOG_SYMBOL = log_symbol
-        self.WIDTH      = width
+    @staticmethod
+    def set(width = 80, log_symbol = '\u00bb'):
+        GlobalVariable.LOG_SYMBOL = log_symbol
+        GlobalVariable.WIDTH      = width
 
 # Fonts taken from http://www.patorjk.com/software/taag/
 

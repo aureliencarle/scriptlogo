@@ -13,16 +13,20 @@ align_options = ['center',
 class Canvas:
     '''
     '''
-    color = None
-    width  = GlobalVariable.WIDTH
+    global_color = None
+    width = 0
     block = []
 
-    def __init__(self):    
+    def __init__(self, global_color):    
+        self.width        = GlobalVariable.WIDTH
+        self.global_color = global_color
         for a in ASCII.Frame.keys():
             if not a.startswith('__'):
                 setattr(Canvas, a, String(''))
 
     def borders(self, color = None, font = 'ANSI Shadow'):
+        if self.global_color is not None:
+            color = self.global_color
         for a in ASCII.Frame.keys():
             if not a.startswith('__'):
                 setattr(Canvas, a, String(ASCII.Frame[a][font], color))
@@ -90,10 +94,12 @@ class Canvas:
 class Splash(Canvas):
     '''
     '''
-    def __init__(self):
-        super().__init__()
+    def __init__(self, global_color = None):
+        super().__init__(global_color)
 
     def generate_ansi(self, text, font='ANSI Shadow', color = None):
+        if self.global_color is not None:
+            color = self.global_color
         result = []
         for char in text:
             if char.islower():
@@ -112,11 +118,13 @@ class Splash(Canvas):
             result.append(string_line)
         #if len(text)*ASCII.Font[font]['width'] >= 80:
         #    Log.warning('ANSI width bigger than canvas width')
-        #    Log.info('change canvas width with 'GlobalVariable.change()'')
+        #    Log.info('change canvas width with 'GlobalVariable.set()'')
         return result
 
 
     def add_ansi_logo(self, logo, align = 'left', color = None):
+        if self.global_color is not None:
+            color = self.global_color
         for line in self.generate_ansi(logo, color = color):
             self.block.append(self.vertical_line(line, align=align))
 
@@ -127,6 +135,8 @@ class Splash(Canvas):
         self.block.append(self.separator(symbol))
 
     def add_one_content_line(self, line, align = 'left', color = None):
+        if self.global_color is not None:
+            color = self.global_color
         if align in align_options:
             string = String(line)
             string.colored(color)
@@ -135,6 +145,9 @@ class Splash(Canvas):
             Log.error('bad align option')
 
     def add_two_content_line(self, line1, line2, align = 'left', color1 = None, color2 = None):
+        if self.global_color is not None:
+            color1 = self.global_color
+            color2 = self.global_color
         string1 = String(line1)
         string2 = String(line2)
         string1.colored(color1)

@@ -3,11 +3,14 @@
 
 from scriptsplash.splash import Splash
 from scriptsplash.log    import Color, Log
+from scriptsplash.utils import GlobalVariable
 
 if __name__ == '__main__':
 
+    #GlobalVariable.set(width = 100, log_symbol = '\u00bb')
+
     script_splash = Splash()
-    script_splash.borders(color = Color.BLUE, font='Sharp')
+    script_splash.borders(color = Color.BLUE, font='ANSI Shadow')
 
     script_splash.add_empty_line()
     script_splash.add_ansi_logo(

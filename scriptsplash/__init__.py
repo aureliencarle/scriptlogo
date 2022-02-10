@@ -18,8 +18,8 @@ name = "scriptlogo"
 from scriptsplash.splash import Splash
 from scriptsplash.utils  import GlobalVariable
 from scriptsplash.log    import Log
+from scriptsplash.log    import Color
 
 # Possibility if you want to use utils class (but too specific to be interesting)
-from scriptsplash.log    import Color
 from scriptsplash.log    import String
 from scriptsplash.utils  import ASCII
