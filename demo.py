@@ -1,18 +1,29 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import argparse
+
 from scriptsplash import Splash
 from scriptsplash import Color, Log
 #from scriptsplash.utils  import GlobalVariable
 
+parser = argparse.ArgumentParser()
+parser.add_argument('-a', action = 'store_true', help='any argument')
+parser.add_argument('-b', action = 'store', help='another argument')
+args = parser.parse_args()
+parser.add_argument('-c', action = 'store', nargs="?", help='another argument again')
+args = parser.parse_args()
+
+
+import sys
 if __name__ == '__main__':
 
     #GlobalVariable.set(width = 100, log_symbol = '\u00bb')
 
     script_splash = Splash()
     script_splash.borders(color = Color.BLUE, font='ANSI Shadow')
-
     script_splash.add_empty_line()
+
     script_splash.add_ansi_logo(
         'Splash', 
         align = 'center',
@@ -44,6 +55,15 @@ if __name__ == '__main__':
     script_splash.add_one_content_line(
         'From the only existing branch ... v1.0', 
         align  = 'left'
+    )
+    script_splash.add_separator(
+        '-', 
+        color = Color.YELLOW
+    )
+    script_splash.add_argparse_help(
+        parser,
+        align = "left",
+        color = Color.YELLOW
     )
 
     script_splash.print_splash()

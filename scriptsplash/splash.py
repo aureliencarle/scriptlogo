@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import argparse
 from scriptsplash.utils import ASCII, GlobalVariable
 from scriptsplash.log import Log, String
 
@@ -25,8 +26,7 @@ class Canvas:
                 setattr(Canvas, a, String(''))
 
     def borders(self, color = None, font = 'ANSI Shadow'):
-        if self.global_color is not None:
-            color = self.global_color
+        if self.global_color is not None : color = self.global_color
         for a in ASCII.Frame.keys():
             if not a.startswith('__'):
                 setattr(Canvas, a, String(ASCII.Frame[a][font], color))
@@ -40,9 +40,10 @@ class Canvas:
         else:
             return self.horizontal.text + ' '*(self.width - 2) + self.horizontalh.text
 
-    def separator(self, symbol = None):
+    def separator(self, symbol = None, color = None):
+        symbol_string = String(symbol, color)
         if symbol is not None:
-            return self.v.text + symbol*(self.width - 2) + self.v.text
+            return self.vertical.text + symbol_string.text*(self.width - 2) + self.vertical.text
         else:
             return self.center_left.text + self.horizontal.text*(self.width - 2) + self.center_right.text
 
@@ -85,11 +86,14 @@ class Canvas:
         result.append(self.bottom())
         return result
 
-    def print_splash(self) -> None:
+    def generate_string(self) -> str:
         result = ''
         for l in self.wraped():
             result += l + '\n'
-        print(result)
+        return result
+
+    def print_splash(self) -> None:
+        print(self.generate_string())
 
 class Splash(Canvas):
     '''
@@ -98,8 +102,7 @@ class Splash(Canvas):
         super().__init__(global_color)
 
     def generate_ansi(self, text, font='ANSI Shadow', color = None):
-        if self.global_color is not None:
-            color = self.global_color
+        if self.global_color is not None : color = self.global_color
         result = []
         for char in text:
             if char.islower():
@@ -121,22 +124,24 @@ class Splash(Canvas):
         #    Log.info('change canvas width with 'GlobalVariable.set()'')
         return result
 
+    def add_multi_line(self, multiline, align = 'left'):
+        for line in multiline:
+            self.block.append(self.vertical_line(line, align=align)) 
 
     def add_ansi_logo(self, logo, align = 'left', color = None):
-        if self.global_color is not None:
-            color = self.global_color
-        for line in self.generate_ansi(logo, color = color):
-            self.block.append(self.vertical_line(line, align=align))
+        self.add_multi_line(self.generate_ansi(logo, color = color), 
+                            align = align)
 
     def add_empty_line(self):
         self.block.append(self.vertical_line())
 
-    def add_separator(self, symbol = None):
-        self.block.append(self.separator(symbol))
-
-    def add_one_content_line(self, line, align = 'left', color = None):
+    def add_separator(self, symbol = None, color = None):
         if self.global_color is not None:
             color = self.global_color
+        self.block.append(self.separator(symbol, color))
+
+    def add_one_content_line(self, line, align = 'left', color = None):
+        if self.global_color is not None : color = self.global_color
         if align in align_options:
             string = String(line)
             string.colored(color)
@@ -154,3 +159,27 @@ class Splash(Canvas):
         string2.colored(color2)
         self.block.append(self.vertical_line(string1, string2, align=align))
 
+    def add_argparse_help(self, parser, align = "left", color = None):
+        if self.global_color is not None : color = self.global_color
+        help = []
+        for line in parser.format_help().split('\n'):
+            if line is not '':
+                help.append(String(line, color))
+        self.add_multi_line(help)    
+
+
+#    def print_usage(self, file=None):
+#        if file is None:
+#            file = _sys.stdout
+#        self._print_message(self.format_usage(), file)
+#
+#    def print_help(self, file=None):
+#        if file is None:
+#            file = _sys.stdout
+#        self._print_message(self.format_help(), file)
+#
+#    def _print_message(self, message, file=None):
+#        if message:
+#            if file is None:
+#                file = _sys.stderr
+#            file.write(message)

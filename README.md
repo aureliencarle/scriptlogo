@@ -1,4 +1,6 @@
-#### Installation
+### How to install scriptsplash
+
+#### Dev(safe) installation
 
 * (Hugely) Inspired by [Créer son propre package python](https://ressources.labomedia.org/creer_son_propre_package_python)
 
@@ -24,6 +26,16 @@ from scriptsplash import Splash
 from scriptsplash import Color, Log
 #from scriptsplash  import GlobalVariable
 
+
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('-a', action = 'store_true', help='any argument')
+parser.add_argument('-b', action = 'store', help='another argument')
+args = parser.parse_args()
+parser.add_argument('-c', action = 'store', nargs="?", help='another argument again')
+args = parser.parse_args()
+
+
 if __name__ == '__main__':
 
     try :
@@ -36,11 +48,12 @@ if __name__ == '__main__':
         script_splash = Splash()
         #script_splash = Splash(global_color = Color.Yellow)
 
-
         # Change font and color of the binding ('ANSI Shadow', 'Sharp'(#), 'Minimal'(- and |) ).
         script_splash.borders(color = Color.BLUE, font='ANSI Shadow')
 
+        # explicit name ;)
         script_splash.add_empty_line()
+
         # ANSI logo :) Be careful ANSI letters are huge, can overflow the canvas and it's ugly.
         # The alignement, can be 'left', 'right', 'center'.
         # Their is a 'middle' alignement for line with two infos (see below).
@@ -49,12 +62,17 @@ if __name__ == '__main__':
             align = 'center',
             color = Color.GREEN
         )
+
+        # explicit name ;)
         script_splash.add_one_content_line(
             'by Arc-Pintade',  
             align  = 'right'
         )
+
+        #
         script_splash.add_empty_line()
         
+        # The separator can carry symbol (char use to make the separator) and color parameter
         script_splash.add_separator()
 
         # If you want two informations on same line, each one have their own color variable.
@@ -64,18 +82,34 @@ if __name__ == '__main__':
             color1 = None,
             color2 = Color.CYAN
         )
+
+        #
         script_splash.add_one_content_line(
             'Aurélien Carle',  
             align  = 'right'
         )
+        #
         script_splash.add_one_content_line(
             'Built for linuxx8664gcc',   
             align  = 'left',
             color  = Color.RED
         )
+        #
         script_splash.add_one_content_line(
             'From the only existing branch ... v1.0', 
             align  = 'left'
+        )
+        #
+        script_splash.add_separator(
+            '-', 
+            color = Color.YELLOW
+        )
+        
+        # If your code use argparse, you can print the help content in the splash
+        script_splash.add_argparse_help(
+            parser,
+            align = "left",
+            color = Color.YELLOW
         )
 
         # Finaly print the splash.
