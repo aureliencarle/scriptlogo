@@ -38,7 +38,7 @@ if __name__ == '__main__':
 
 
         # Change font and color of the binding ('ANSI Shadow', 'Sharp'(#), 'Minimal'(- and |) ).
-        script_splash.borders(color = Color.BLUE, font='Sharp')
+        script_splash.borders(color = Color.BLUE, font='ANSI Shadow')
 
         script_splash.add_empty_line()
         # ANSI logo :) Be careful ANSI letters are huge, can overflow the canvas and it's ugly.
