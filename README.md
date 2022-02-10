@@ -20,7 +20,7 @@ Example of script :
 
 ~~~python
 # Imports en python3
-from scriptsplash import Logo
+from scriptsplash import Splash
 from scriptsplash import Color, Log
 #from scriptsplash  import GlobalVariable
 
