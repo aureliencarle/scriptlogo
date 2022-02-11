@@ -49,14 +49,23 @@ class String:
 
     def colored(self, color):
         if color is not None:
-            self.text = color+self.text+Color.ENDC
+            self.text = Log.colored(color, self.text)
 
     def underlined(self):
-        self.text = Color.ULINE+self.text+Color.ENDC
+        self.text = Log.underlined(self.text)
 
 class Log:
     '''
     '''
+
+    @staticmethod
+    def colored(color, text):
+        return color+text+Color.ENDC
+
+    @staticmethod
+    def underlined(text):
+        return Color.ULINE+text+Color.ENDC
+
     @staticmethod
     def general_print(alinea, color, log, symbol, object):
         print(alinea+color+log+symbol+' '+Color.ENDC+str(object))   
