@@ -156,3 +156,7 @@ If you want the splash for a C++ code, use the "export_to_cpp_file" method. A ne
 ### Licence
 
 All scripts are under license : GNU GENERAL PUBLIC LICENSE Version 3
+
+### Thanks to
+
+* Gregoire Uhlrich

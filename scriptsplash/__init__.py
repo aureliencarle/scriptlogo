@@ -2,9 +2,6 @@
 # -*- coding: utf-8 -*-
  
 """
-    Ce module propose les outils les plus courrant que j'utilise,
-    et aussi pour retrouver des syntaxes peu utilisée que je n'ai pas en mémoire,
-    et qui nécessiteraient des recherches.
     Les imports réalisé ici facilite les imports dans les scripts:
     Au lieu de:
         from scriptsplash.splash import Splash
