@@ -126,7 +126,7 @@ if __name__ == '__main__':
         Log.info("Keyboard interrupt")
 ~~~
 
-If you want the splash for a C++ code, use the "export_to_cpp_file" method. A new cpp file will be created with a std::string return method call splashFromPythonToCpp())":
+If you want the splash for a C++ code, use the "export_to_cpp_file" method. A new cpp file will be created with a std::string return method call splashFromPythonToCpp()":
 
 ~~~python
     script_splash.export_to_cpp_file('splash_from_python_to_cpp.hpp')
