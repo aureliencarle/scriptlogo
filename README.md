@@ -1,8 +1,25 @@
-### How to install scriptsplash
+## Script-Splash
+
+* (Hugely) Inspired by [Créer son propre package python](https://ressources.labomedia.org/creer_son_propre_package_python)
+
+### How to install Script-Splash
+
+#### Standard pip3 installation
+
+~~~text
+pip3 install git+https://github.com/aureliencarle/scriptsplash.git
+~~~
+
+Update:
+
+~~~text
+pip3 install --upgrade git+https://github.com/aureliencarle/scriptsplash.git
+~~~
+
 
 #### Dev(safe) installation
 
-* (Hugely) Inspired by [Créer son propre package python](https://ressources.labomedia.org/creer_son_propre_package_python)
+With the following installation method a "src" directory will be created in your project directory with all the good ready-to-use settings and path
 
 ~~~text
 pip3 install -e git+https://github.com/aureliencarle/scriptsplash.git#egg=scriptsplash
@@ -14,9 +31,13 @@ Update:
 pip3 install --upgrade git+https://github.com/aureliencarle/scriptsplash.git#egg=scriptsplash
 ~~~
 
-with this installation method a src directory will be created in your project directory with all the good ready-to-use settings and path
+#### Unistall 
 
-### How to use scriptsplash
+~~~text
+pip3 uninstall scriptsplash
+~~~
+
+### How to use Script-Splash
 
 Example of script :
 
