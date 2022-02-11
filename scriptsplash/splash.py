@@ -95,6 +95,26 @@ class Canvas:
     def print_splash(self) -> None:
         print(self.generate_string())
 
+    # Not really useful except for debug
+    def print_splash_as_cpp_function(self) -> None:
+        print(self.splash_cpp())
+
+    def export_to_cpp_file(self, filename):
+        with open(filename, 'w') as cppFile:
+            cppFile.write(self.splash_cpp())
+
+    def splash_cpp(self):
+        result  = '#include <string>\n\n'
+        result += '// generate from scriptslash \n'
+        result += '// check https://github.com/aureliencarle/scriptsplash.git \n'
+        result += 'std::string splashFromPythonToCpp()\n'
+        result += '{\n'
+        result += '    std::string splash = "'+repr(self.generate_string())[1:-1]+'";\n'
+        result += '    return splash;\n'
+        result += '}\n'
+        return result
+
+
 class Splash(Canvas):
     '''
     '''
