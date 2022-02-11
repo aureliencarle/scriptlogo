@@ -39,21 +39,25 @@ class Log:
     '''
     '''
     @staticmethod
+    def general_print(alinea, color, log, symbol, object):
+        print(alinea+color+log+symbol+' '+Color.ENDC+str(object))   
+
+    @staticmethod
     def print(object) -> None:
-        print(GlobalVariable.LOG_ALINEA+' PRINT   '+GlobalVariable.LOG_SYMBOL+' '+str(object))
+        Log.general_print(GlobalVariable.LOG_ALINEA, '', ' PRINT   ', GlobalVariable.LOG_SYMBOL, str(object))
 
     @staticmethod
     def debug(words) -> None:
-        print(GlobalVariable.LOG_ALINEA+ Color.GREEN+' DEBUG   '+GlobalVariable.LOG_SYMBOL+' '+Color.ENDC+str(words))
+        Log.general_print(GlobalVariable.LOG_ALINEA, Color.GREEN, ' DEBUG   ', GlobalVariable.LOG_SYMBOL, str(words))
 
     @staticmethod
     def info(words) -> None:
-        print(GlobalVariable.LOG_ALINEA+ Color.CYAN+' INFO    '+GlobalVariable.LOG_SYMBOL+' '+Color.ENDC+str(words))
+        Log.general_print(GlobalVariable.LOG_ALINEA, Color.CYAN, ' INFO    ', GlobalVariable.LOG_SYMBOL, str(words))
 
     @staticmethod
     def warning(words) -> None:
-        print(GlobalVariable.LOG_ALINEA+ Color.YELLOW+' WARNING '+GlobalVariable.LOG_SYMBOL+' '+Color.ENDC+str(words))
+        Log.general_print(GlobalVariable.LOG_ALINEA, Color.YELLOW, ' WARNING ', GlobalVariable.LOG_SYMBOL, str(words))
 
     @staticmethod
     def error(words) -> None: 
-        print(GlobalVariable.LOG_ALINEA+ Color.RED+' ERROR   '+GlobalVariable.LOG_SYMBOL+' '+Color.ENDC+str(words))
+        Log.general_print(GlobalVariable.LOG_ALINEA, Color.RED, ' ERROR   ', GlobalVariable.LOG_SYMBOL, str(words))
