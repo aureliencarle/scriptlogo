@@ -46,7 +46,7 @@ pip3 uninstall scriptsplash
 
 ### How to use Script-Splash
 
-The following enample script generate the splashs you can see on the previous screenshot. 
+The following example script generate the splashs you can see on the previous screenshot. 
 
 ~~~python
 # Imports en python3
