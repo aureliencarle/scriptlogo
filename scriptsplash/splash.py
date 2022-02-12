@@ -22,7 +22,6 @@
 
 from scriptsplash.utils import ASCII, GlobalVariable
 from scriptsplash.log import Log, String
-
 align_options = ['center', 
                  'middle', 
                  'left',
@@ -111,8 +110,13 @@ class Canvas:
             result += l + '\n'
         return result
 
-    def print_splash(self) -> None:
-        print(self.generate_string())
+    def print_splash(self, lolcat = False) -> None:
+        if lolcat:
+            import os
+            cmd = 'echo "'+self.generate_string()+'" | lolcat'
+            os.system(cmd)
+        else:
+            print(self.generate_string())
 
     # Not really useful except for debug
     def print_splash_as_cpp_function(self) -> None:

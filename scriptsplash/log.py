@@ -59,9 +59,9 @@ class Color:
     MAGENTA_BACKGROUND      = '\033[105m'
     CYAN_BACKGROUND         = '\033[106m'
     # Char stats
-    BOLD             = '\033[1m'
-    ULINE            = '\033[4m'
-    ENDC             = '\033[0m'
+    BOLD                    = '\033[1m'
+    ULINE                   = '\033[4m'
+    ENDC                    = '\033[0m'
 
 
 class String:

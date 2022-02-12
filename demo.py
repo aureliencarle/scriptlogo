@@ -134,7 +134,7 @@ if __name__ == '__main__':
         align='left',
         color=Color.YELLOW
     )
-    splash3.print_splash()
+    splash3.print_splash(lolcat=True)
 
     #########################################
     #########################################
