@@ -22,16 +22,46 @@
 
 from scriptsplash.utils import GlobalVariable
 
+
+
 class Color:
-    HEADER = '\033[95m'
-    BLUE   = '\033[94m'
-    CYAN   = '\033[96m'
-    GREEN  = '\033[92m'
-    YELLOW = '\033[93m'
-    RED    = '\033[91m'
-    BOLD   = '\033[1m'
-    ULINE  = '\033[4m'
-    ENDC   = '\033[0m'
+    # Color
+    BLACK                   = '\033[30m'
+    WHITE                   = '\033[97m'
+    DARKGRAY                = '\033[90m'  
+    DARKRED                 = '\033[31m'
+    DARKGREEN               = '\033[32m'
+    DARKYELLOW              = '\033[33m'
+    DARKBLUE                = '\033[34m'
+    DARKMAGENTA             = '\033[35m'
+    DARKCYAN                = '\033[36m'
+    GRAY                    = '\033[37m'
+    RED                     = '\033[91m' 
+    GREEN                   = '\033[92m' 
+    YELLOW                  = '\033[93m' 
+    BLUE                    = '\033[94m' 
+    MAGENTA                 = '\033[95m' 
+    CYAN                    = '\033[96m' 
+    BLACK_BACKGROUND        = '\033[40m'
+    WHITE_BACKGROUND        = '\033[107m'
+    DARKRED_BACKGROUND      = '\033[41m'
+    DARKGREEN_BACKGROUND    = '\033[42m'
+    DARKYELLOW_BACKGROUND   = '\033[43m'
+    DARKBLUE_BACKGROUND     = '\033[44m'
+    DARKMAGENTA_BACKGROUND  = '\033[45m'
+    DARKCYAN_BACKGROUND     = '\033[46m'
+    DARKGRAY_BACKGROUND     = '\033[100m'
+    GRAY_BACKGROUND         = '\033[47m'
+    RED_BACKGROUND          = '\033[101m'
+    GREEN_BACKGROUND        = '\033[102m'
+    YELLOW_BACKGROUND       = '\033[103m'
+    BLUE_BACKGROUND         = '\033[104m'
+    MAGENTA_BACKGROUND      = '\033[105m'
+    CYAN_BACKGROUND         = '\033[106m'
+    # Char stats
+    BOLD             = '\033[1m'
+    ULINE            = '\033[4m'
+    ENDC             = '\033[0m'
 
 
 class String:

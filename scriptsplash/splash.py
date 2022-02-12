@@ -33,10 +33,11 @@ class Canvas:
     '''
     '''
     global_color = None
-    width = 0
-    block = []
+    width = None
+    block = None
 
-    def __init__(self, global_color):    
+    def __init__(self, global_color):
+        self.block        = []
         self.width        = GlobalVariable.WIDTH
         self.global_color = global_color
         for a in ASCII.Frame.keys():
@@ -139,7 +140,7 @@ class Splash(Canvas):
     def __init__(self, global_color=None):
         super().__init__(global_color)
 
-    def generate_ansi(self, text, font='ANSI Shadow', color=None):
+    def generate_ansi(self, text, font, color):
         if self.global_color is not None : color = self.global_color
         result = []
         for char in text:
@@ -166,8 +167,8 @@ class Splash(Canvas):
         for line in multiline:
             self.block.append(self.vertical_line(line, align=align)) 
 
-    def add_ansi_logo(self, logo, align='left', color=None):
-        self.add_multi_line(self.generate_ansi(logo, color=color), align=align)
+    def add_ansi_logo(self, logo, font='ANSI Shadow', align='left', color=None):
+        self.add_multi_line(self.generate_ansi(logo, font, color=color), align=align)
 
     def add_empty_line(self):
         self.block.append(self.vertical_line())
@@ -205,19 +206,3 @@ class Splash(Canvas):
                 help.append(String(line, color))
         self.add_multi_line(help)    
 
-
-#    def print_usage(self, file=None):
-#        if file is None:
-#            file = _sys.stdout
-#        self._print_message(self.format_usage(), file)
-#
-#    def print_help(self, file=None):
-#        if file is None:
-#            file = _sys.stdout
-#        self._print_message(self.format_help(), file)
-#
-#    def _print_message(self, message, file=None):
-#        if message:
-#            if file is None:
-#                file = _sys.stderr
-#            file.write(message)
