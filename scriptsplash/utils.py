@@ -56,42 +56,50 @@ class ASCII:
         'top_left' : {
             'ANSI Shadow' : '╔',
             'Sharp'       : '#',
-            'Minimal'     : ' '
+            'Minimal'     : ' ',
+            'Empty'       : ' '
         },
         'top_right' : {
             'ANSI Shadow' : '╗',
             'Sharp'       : '#',
-            'Minimal'     : ' '
+            'Minimal'     : ' ',
+            'Empty'       : ' '
         },
         'bottom_left' : {
             'ANSI Shadow' : '╚',
             'Sharp'       : '#',
-            'Minimal'     : ' '
+            'Minimal'     : ' ',
+            'Empty'       : ' '
         },
         'bottom_right' : {
             'ANSI Shadow' : '╝',
             'Sharp'       : '#',
-            'Minimal'     : ' '
+            'Minimal'     : ' ',
+            'Empty'       : ' '
         },
         'center_left' : {
             'ANSI Shadow' : '╠',
             'Sharp'       : '#',
-            'Minimal'     : '|'
+            'Minimal'     : '|',
+            'Empty'       : ' '
         },
         'center_right' : {
             'ANSI Shadow' : '╣',
             'Sharp'       : '#',
-            'Minimal'     : '-'
+            'Minimal'     : '-',
+            'Empty'       : ' '
         },
         'vertical'  : {
             'ANSI Shadow' : '║',
             'Sharp'       : '#',
-            'Minimal'     : '|'
+            'Minimal'     : '|',
+            'Empty'       : ' '
         },
         'horizontal'  : {
             'ANSI Shadow' : '═',
             'Sharp'       : '#',
-            'Minimal'     : '-'
+            'Minimal'     : '-',
+            'Empty'       : ' '
         }
     }
 
