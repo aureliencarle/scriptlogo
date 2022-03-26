@@ -21,7 +21,6 @@
 #######################################################################
 
 import argparse
-from tkinter import font
 
 from scriptsplash import Splash
 from scriptsplash import Color, Log
