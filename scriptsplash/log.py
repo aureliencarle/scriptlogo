@@ -21,52 +21,75 @@
 #######################################################################
 
 from scriptsplash.utils import GlobalVariable
-
+from colorama import Fore, Back, Style
 
 
 class Color:
     # Color
-    BLACK                   = '\033[30m'
-    WHITE                   = '\033[97m'
-    DARKGRAY                = '\033[90m'  
-    DARKRED                 = '\033[31m'
-    DARKGREEN               = '\033[32m'
-    DARKYELLOW              = '\033[33m'
-    DARKBLUE                = '\033[34m'
-    DARKMAGENTA             = '\033[35m'
-    DARKCYAN                = '\033[36m'
-    GRAY                    = '\033[37m'
-    RED                     = '\033[91m' 
-    GREEN                   = '\033[92m' 
-    YELLOW                  = '\033[93m' 
-    BLUE                    = '\033[94m' 
-    MAGENTA                 = '\033[95m' 
-    CYAN                    = '\033[96m' 
-    BLACK_BACKGROUND        = '\033[40m'
-    WHITE_BACKGROUND        = '\033[107m'
-    DARKRED_BACKGROUND      = '\033[41m'
-    DARKGREEN_BACKGROUND    = '\033[42m'
-    DARKYELLOW_BACKGROUND   = '\033[43m'
-    DARKBLUE_BACKGROUND     = '\033[44m'
-    DARKMAGENTA_BACKGROUND  = '\033[45m'
-    DARKCYAN_BACKGROUND     = '\033[46m'
-    DARKGRAY_BACKGROUND     = '\033[100m'
-    GRAY_BACKGROUND         = '\033[47m'
-    RED_BACKGROUND          = '\033[101m'
-    GREEN_BACKGROUND        = '\033[102m'
-    YELLOW_BACKGROUND       = '\033[103m'
-    BLUE_BACKGROUND         = '\033[104m'
-    MAGENTA_BACKGROUND      = '\033[105m'
-    CYAN_BACKGROUND         = '\033[106m'
+    BLACK = '\033[30m'
+    WHITE = '\033[97m'
+    DARKGRAY = '\033[90m'
+    DARKRED = '\033[31m'
+    DARKGREEN = '\033[32m'
+    DARKYELLOW = '\033[33m'
+    DARKBLUE = '\033[34m'
+    DARKMAGENTA = '\033[35m'
+    DARKCYAN = '\033[36m'
+    GRAY = '\033[37m'
+    RED = '\033[91m'
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    BLUE = '\033[94m'
+    MAGENTA = '\033[95m'
+    CYAN = '\033[96m'
+    BLACK_BACKGROUND = '\033[40m'
+    WHITE_BACKGROUND = '\033[107m'
+    DARKRED_BACKGROUND = '\033[41m'
+    DARKGREEN_BACKGROUND = '\033[42m'
+    DARKYELLOW_BACKGROUND = '\033[43m'
+    DARKBLUE_BACKGROUND = '\033[44m'
+    DARKMAGENTA_BACKGROUND = '\033[45m'
+    DARKCYAN_BACKGROUND = '\033[46m'
+    DARKGRAY_BACKGROUND = '\033[100m'
+    GRAY_BACKGROUND = '\033[47m'
+    RED_BACKGROUND = '\033[101m'
+    GREEN_BACKGROUND = '\033[102m'
+    YELLOW_BACKGROUND = '\033[103m'
+    BLUE_BACKGROUND = '\033[104m'
+    MAGENTA_BACKGROUND = '\033[105m'
+    CYAN_BACKGROUND = '\033[106m'
     # Char stats
-    BOLD                    = '\033[1m'
-    ULINE                   = '\033[4m'
-    ENDC                    = '\033[0m'
+    BOLD = '\033[1m'
+    ULINE = '\033[4m'
+    ENDC = '\033[0m'
+
+
+class Format:
+    @staticmethod
+    def styled(
+        text: str, color: str, style: str = 'normal', backgroud=None
+    ) -> str:
+        """Apply color special characters to a string"""
+        color_str = getattr(Fore, color.upper())
+        backg_str = ''
+        if backgroud is not None:
+            backg_str = getattr(Back, backgroud.upper())
+        style_str = getattr(Style, style.upper())
+        reset_str = Style.RESET_ALL
+        return f'{color_str}{style_str}{backg_str}{text}{reset_str}'
+
+    @staticmethod
+    def styled_log(
+        alinea: str, color: str, log: str, symbol: str, object: any
+    ) -> None:
+        color_str = getattr(Fore, color.upper())
+        reset_str = Style.RESET_ALL
+        return f'{alinea}{color_str}{log}{symbol}{reset_str}{str(object)}'
 
 
 class String:
-    text  = ''
-    size  = 0
+    text = ''
+    size = 0
 
     def __init__(self, text, color=None):
         if text:
@@ -77,45 +100,64 @@ class String:
         else:
             pass
 
-    def colored(self, color):
+    def colored(self, color, background=None):
         if color is not None:
-            self.text = Log.colored(color, self.text)
+            self.text = Format.styled(self.text, color)
 
-    def underlined(self):
-        self.text = Log.underlined(self.text)
 
 class Log:
-    '''
-    '''
-
-    @staticmethod
-    def colored(color, text):
-        return color+text+Color.ENDC
-
-    @staticmethod
-    def underlined(text):
-        return Color.ULINE+text+Color.ENDC
+    ''' '''
 
     @staticmethod
     def general_print(alinea, color, log, symbol, object):
-        print(alinea+color+log+symbol+' '+Color.ENDC+str(object))   
+        print(Format.styled_log(alinea, color, log, symbol, object))
 
     @staticmethod
     def print(object) -> None:
-        Log.general_print(GlobalVariable.LOG_ALINEA, '', ' PRINT   ', GlobalVariable.LOG_SYMBOL, str(object))
+        Log.general_print(
+            GlobalVariable.LOG_ALINEA,
+            'reset',
+            ' PRINT   ',
+            GlobalVariable.LOG_SYMBOL,
+            str(object),
+        )
 
     @staticmethod
     def debug(words) -> None:
-        Log.general_print(GlobalVariable.LOG_ALINEA, Color.GREEN, ' DEBUG   ', GlobalVariable.LOG_SYMBOL, str(words))
+        Log.general_print(
+            GlobalVariable.LOG_ALINEA,
+            'green',
+            ' DEBUG   ',
+            GlobalVariable.LOG_SYMBOL,
+            str(words),
+        )
 
     @staticmethod
     def info(words) -> None:
-        Log.general_print(GlobalVariable.LOG_ALINEA, Color.CYAN, ' INFO    ', GlobalVariable.LOG_SYMBOL, str(words))
+        Log.general_print(
+            GlobalVariable.LOG_ALINEA,
+            'cyan',
+            ' INFO    ',
+            GlobalVariable.LOG_SYMBOL,
+            str(words),
+        )
 
     @staticmethod
     def warning(words) -> None:
-        Log.general_print(GlobalVariable.LOG_ALINEA, Color.YELLOW, ' WARNING ', GlobalVariable.LOG_SYMBOL, str(words))
+        Log.general_print(
+            GlobalVariable.LOG_ALINEA,
+            'yellow',
+            ' WARNING ',
+            GlobalVariable.LOG_SYMBOL,
+            str(words),
+        )
 
     @staticmethod
-    def error(words) -> None: 
-        Log.general_print(GlobalVariable.LOG_ALINEA, Color.RED, ' ERROR   ', GlobalVariable.LOG_SYMBOL, str(words))
+    def error(words) -> None:
+        Log.general_print(
+            GlobalVariable.LOG_ALINEA,
+            'red',
+            ' ERROR   ',
+            GlobalVariable.LOG_SYMBOL,
+            str(words),
+        )
