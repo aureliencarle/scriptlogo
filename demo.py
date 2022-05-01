@@ -23,7 +23,7 @@
 import argparse
 
 from scriptsplash import Splash
-from scriptsplash import Color, Log
+from scriptsplash import Log
 
 # from scriptsplash.utils  import GlobalVariable
 
